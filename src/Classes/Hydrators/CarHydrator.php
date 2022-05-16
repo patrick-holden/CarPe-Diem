@@ -2,20 +2,22 @@
 
 namespace CarpeDiem\Classes\Hydrators;
 
+use CarpeDiem\Classes\Entities\Car;
+
 class CarHydrator
 {
 
-    public static function hydrateFromArray($carArray)
+    public static function hydrateFromArray($carArray): Car
     {
         $car = new Car();
 
         $car->setId($carArray['id']);
-        $car->setId($carArray['make']);
-        $car->setId($carArray['model']);
-        $car->setId($carArray['year']);
-        $car->setId($carArray['colour']);
-        $car->setId($carArray['location']);
-        $car->setId($carArray['image']);
+        $car->setMake($carArray['make']);
+        $car->setModel($carArray['model']);
+        $car->setYear($carArray['year']);
+        $car->setColour($carArray['colour']);
+        $car->setLocation($carArray['location']);
+        $car->setImage($carArray['image']);
 
         return $car;
     }
