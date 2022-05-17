@@ -17,7 +17,7 @@ use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="csss/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>CarPe-Diem</title>
 </head>
 
@@ -41,5 +41,3 @@ use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
 </main>
 </body>
 </html>
-
-

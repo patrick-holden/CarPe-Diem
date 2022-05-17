@@ -26,7 +26,7 @@ header {
     .jumbo-container {
       display: flex;
       flex-direction: column;
-      border: 4px solid;
+      border: 0.25rem solid  $bg-colour;
       color: $bg-colour;
 
       h1 {
@@ -90,7 +90,7 @@ main {
         grid-column: 1/2;
         align-self: end;
         background-color: $bg-colour;
-        border: 1px solid $text-colour;
+        border: 0.06rem solid $text-colour;
         padding: 0.7rem 0.3rem;
         width: 90%;
         justify-self: center;
@@ -98,7 +98,7 @@ main {
       }
 
       .moreBtn:hover {
-        border: 2px solid $text-colour;
+        border: 0.13rem solid $text-colour;
       }
 
       .details {

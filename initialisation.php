@@ -145,7 +145,12 @@ function fillTables(Database $db, string $tableName, string $fieldName, array $d
 
         $query = $db->getConnection()->prepare($sql);
 
-        $query->execute($values);
+        $success = $query->execute($values);
+        if (!$success) {
+            echo '<h1>Database creation failed!</h1>';
+            return false;
+        }
+
     }
 
     return true;
