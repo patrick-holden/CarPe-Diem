@@ -7,16 +7,20 @@ use CarpeDiem\Classes\Services\Database;
 
 class CarCollectionDAO
 {
-    public static function fetch(Database $db, int $id): CarCollection
+    public static function fetchAllCars(Database $db): CarCollection
     {
-        $sql = 'SELECT `id`, `make`, `model`, `year`, `colour`, `location`, `image`'
+        $sql = 'SELECT `car`.`id`, `make`.`make`, `model`, `year`, `colour`.`colour`, `location`.`location`, `image`'
             . 'FROM `car` '
-            . 'WHERE `id` = :id ';
+            . 'INNER JOIN `make`'
+            .'ON `car`. `make` = `make` .`id`'
+            . 'INNER JOIN `colour`'
+            .'ON `car`. `colour` = `colour` .`id`'
+            . 'INNER JOIN `location`'
+            .'ON `car`. `location` = `location` .`id`';
 
-        $values = [':id' => $id];
 
         $stmt = $db->getConnection()->prepare($sql);
-        $stmt->execute($values);
+        $stmt->execute();
 
         return CarCollectionHydrator::hydrateFromDb($stmt);
     }

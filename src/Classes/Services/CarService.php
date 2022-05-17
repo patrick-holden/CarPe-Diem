@@ -15,6 +15,6 @@ class CarService
 
     public function getCarCollection(int $id): CarCollection
     {
-        return CarCollectionDAO::fetch($this->db, $id);
+        return CarCollectionDAO::fetchAllCars($this->db, $id);
     }
 }
