@@ -17,8 +17,7 @@ class CarCollectionDAO
             .'ON `car`. `colour` = `colour` .`id`'
             . 'INNER JOIN `location`'
             .'ON `car`. `location` = `location` .`id`';
-
-
+        
         $stmt = $db->getConnection()->prepare($sql);
         $stmt->execute();
 
