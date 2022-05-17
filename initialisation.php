@@ -43,7 +43,6 @@ function dropTablesIfExist(Database $db): bool
     }
 
     return true;
-
 }
 
 // Create empty tables
