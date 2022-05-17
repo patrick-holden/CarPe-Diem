@@ -22,15 +22,21 @@ Run this to initialise SASS:
 sass --watch style.scss style.css
 ```
 
-Install the database `/XXXXXXXXX.sql` into a db named `XXXXXXXX`
+Create a MySQL database called:
+
+```bash
+carsdb
+```
 
 Ensure your local database host, username and password details are correct in:
 
 ```bash
-XXX
+src/Classes/Services/Database.php
 ```
 
-The application will now be available wherever you access your PHP prejects :-)
+Run `initialisation.php` this will create and fill database tables.
+
+Run `index.php` to see the application!
 
 ## Authors
 
