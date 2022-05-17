@@ -12,11 +12,11 @@ class CarHydrator
         $car = new Car();
 
         $car->setId($carArray['id']);
-        $car->setMake($carArray['make']);
+        $car->setMake($carArray['makes']);
         $car->setModel($carArray['model']);
         $car->setYear($carArray['year']);
-        $car->setColour($carArray['colour']);
-        $car->setLocation($carArray['location']);
+        $car->setColour($carArray['colours']);
+        $car->setLocation($carArray['locations']);
         $car->setImage($carArray['image']);
 
         return $car;

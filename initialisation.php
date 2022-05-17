@@ -1,5 +1,5 @@
 <?php
-
+use CarpeDiem\Classes\Services\Database;
 require_once 'src/Classes/Services/Database.php';
 
 // access json with curl and create an array called $cars

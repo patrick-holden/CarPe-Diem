@@ -1,10 +1,11 @@
 <?php
-
+namespace CarpeDiem\Classes\Services;
 class Database // singleton
 {
     private \PDO $pdo;
 
     private static ?Database $instance = null; // initialise the db with null using ?
+
     // ? allows the Database to be nullable. Ie it can be of type Database or type null
 
     private function __construct()
@@ -19,8 +20,8 @@ class Database // singleton
 
         $options = [
             \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
-            \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
-            \PDO::ATTR_EMULATE_PREPARES   => false,
+            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+            \PDO::ATTR_EMULATE_PREPARES => false,
         ]; // The backslashes indicate that PDO is in the global namespace
 
         try {
@@ -45,3 +46,4 @@ class Database // singleton
     {
         return $this->pdo;
     }
+}

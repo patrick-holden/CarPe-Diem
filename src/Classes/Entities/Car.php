@@ -5,8 +5,8 @@ class Car
     private int $id = -1;
     private string $make = '';
     private string $model = '';
-    private int $year = 0;
-    private string $colour = '';
+    private ?int $year = null;
+    private ?string $colour = '';
     private string $location = '';
     private string $image = '';
 
@@ -69,7 +69,7 @@ class Car
     /**
      * @param int $year
      */
-    public function setYear(int $year): void
+    public function setYear(?int $year): void
     {
         $this->year = $year;
     }
@@ -85,7 +85,7 @@ class Car
     /**
      * @param string $colour
      */
-    public function setColour(string $colour): void
+    public function setColour(?string $colour): void
     {
         $this->colour = $colour;
     }
@@ -101,7 +101,7 @@ class Car
     /**
      * @param string $location
      */
-    public function setLocation(string $location): void
+    public function setLocation(?string $location): void
     {
         $this->location = $location;
     }

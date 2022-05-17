@@ -9,14 +9,14 @@ class CarCollectionDAO
 {
     public static function fetchAllCars(Database $db): CarCollection
     {
-        $sql = 'SELECT `car`.`id`, `make`.`make`, `model`, `year`, `colour`.`colour`, `location`.`location`, `image`'
-            . 'FROM `car` '
-            . 'INNER JOIN `make`'
-            .'ON `car`. `make` = `make` .`id`'
-            . 'INNER JOIN `colour`'
-            .'ON `car`. `colour` = `colour` .`id`'
-            . 'INNER JOIN `location`'
-            .'ON `car`. `location` = `location` .`id`';
+        $sql = 'SELECT `cars`.`id`, `makes`.`makes`, `model`, `year`, `colours`.`colours`, `locations`.`locations`, `image`'
+            . 'FROM `cars` '
+            . 'INNER JOIN `makes`'
+            .'ON `cars`. `make` = `makes` .`id`'
+            . 'INNER JOIN `colours`'
+            .'ON `cars`. `colour` = `colours` .`id`'
+            . 'INNER JOIN `locations`'
+            .'ON `cars`. `location` = `locations` .`id`';
         
         $stmt = $db->getConnection()->prepare($sql);
         $stmt->execute();
