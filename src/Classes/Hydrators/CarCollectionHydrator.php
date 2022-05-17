@@ -2,6 +2,7 @@
 
 namespace CarpeDiem\Classes\Hydrators;
 
+use CarpeDiem\Classes\Entities\Car;
 use CarpeDiem\Classes\Entities\CarCollection;
 
 class CarCollectionHydrator
@@ -17,7 +18,8 @@ class CarCollectionHydrator
         if ($result) {
             $collectedCars = [];
             foreach ($result as $carArray) {
-                $car = CarHydrator::hydrateFromArray($carArray);
+                $car = new Car();
+                $car = CarHydrator::hydrateFromArray($carArray, $car);
                 $collectedCars[] = $car;
             }
             $carCollection->setCollectedCars($collectedCars);

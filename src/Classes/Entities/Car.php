@@ -5,7 +5,7 @@ class Car
     private int $id = -1;
     private string $make = '';
     private string $model = '';
-    private ?int $year = null;
+    private ?int $year = 0;
     private ?string $colour = '';
     private string $location = '';
     private string $image = '';

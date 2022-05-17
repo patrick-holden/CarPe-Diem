@@ -7,9 +7,8 @@ use CarpeDiem\Classes\Entities\Car;
 class CarHydrator
 {
 
-    public static function hydrateFromArray($carArray): Car
+    public static function hydrateFromArray($carArray, $car): Car
     {
-        $car = new Car();
 
         $car->setId($carArray['id']);
         $car->setMake($carArray['makes']);
