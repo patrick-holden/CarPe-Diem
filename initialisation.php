@@ -25,12 +25,9 @@ foreach ($cars as $car) {
 }
 
 // Remove duplicates from each array.
-$makes = array_values(array_unique($allMakes));
-$colours = array_values(array_unique($allColours));
-$locations = array_values(array_unique($allLocations));
-
-$makeKey = array_keys($makes);
-
+$reducedMakes = array_values(array_unique($allMakes));
+$reducedColours = array_values(array_unique($allColours));
+$reducedLocations = array_values(array_unique($allLocations));
 
 function dropTablesIfExist(Database $db): bool
 {
@@ -49,7 +46,6 @@ function dropTablesIfExist(Database $db): bool
 
 }
 
-
 // Create empty tables
 function createTables(Database $db, string $tableName): bool
 {
@@ -64,7 +60,7 @@ function createTables(Database $db, string $tableName): bool
     return $query->execute();
 }
 
-function createMainTable(Database $db, array $data): bool
+function createMainTable(Database $db): bool
 {
     $sql = 'CREATE TABLE `cars` ('
         . '`id` int(11) unsigned NOT NULL AUTO_INCREMENT,'
@@ -82,21 +78,53 @@ function createMainTable(Database $db, array $data): bool
 
     $query = $db->getConnection()->prepare($sql);
 
-    $query->execute();
+    return $query->execute();
+}
 
-    foreach ($data as $car) {
+// Fill tables
+function fillMainTable (Database $db, array $cars, array $reducedMakes, array $reducedColours, array $reducedLocations): bool
+{
+    $makeID = [];
+    $colourID = [];
+    $locationID = [];
+
+    foreach ($cars as $car) {
+
+        foreach ($reducedMakes as $reducedMake) {
+            if ($car['make'] == $reducedMake) {
+                $makeID = array_keys($reducedMakes, $reducedMake);
+                $makeID[0]++;
+            }
+        }
+
+        foreach ($reducedColours as $reducedColour) {
+            if (!$car['color']) {
+                $colourID[0] = 15;
+            } elseif ($car['color'] == $reducedColour) {
+                $colourID = array_keys($reducedColours, $reducedColour);
+                $colourID[0]++;
+            }
+        }
+
+        foreach ($reducedLocations as $reducedLocation) {
+            if ($car['location'] == $reducedLocation) {
+                $locationID = array_keys($reducedLocations, $reducedLocation);
+                $locationID[0]++;
+            }
+        }
+
+        if (!$car['year']) {
+            $car['year'] = null;
+        }
+
         $sql = "INSERT INTO `cars` (`make`, `model`, `year`, `colour`, `location`, `image`)"
             . " VALUES (:make, :model, :year, :colour, :location, :image); ";
 
-        if($car['make'] == $makes) {
-
-        }
-
-        $values = [':make' => $car['make'],
+        $values = [':make' => $makeID[0],
             ':model' => $car['model'],
             ':year' => $car['year'],
-            ':colour' => $car['color'],
-            ':location' => $car['location'],
+            ':colour' => $colourID[0],
+            ':location' => $locationID[0],
             ':image' => $car['image']
         ];
 
@@ -106,11 +134,8 @@ function createMainTable(Database $db, array $data): bool
     }
 
     return true;
-
 }
 
-
-// Fill tables
 function fillTables(Database $db, string $tableName, array $data): bool
 {
     foreach ($data as $dt) {
@@ -134,13 +159,12 @@ createTables($db, 'makes');
 createTables($db, 'colours');
 createTables($db, 'locations');
 
-createMainTable($db, $cars);
+fillTables($db, 'makes', $reducedMakes);
+fillTables($db, 'colours', $reducedColours);
+fillTables($db, 'locations', $reducedLocations);
 
-//fillTables($db, 'makes', $makes);
-//fillTables($db, 'locations', $locations);
-//fillTables($db, 'colours', $colours);
+createMainTable($db);
 
-//createForeignKeys($db);
-
+fillMainTable($db, $cars, $reducedMakes, $reducedColours, $reducedLocations);
 
 echo '<h1>Database successfully initialised!</h1>';
