@@ -31,7 +31,6 @@ $reducedLocations = array_values(array_unique($allLocations));
 
 function dropTablesIfExist(Database $db): bool
 {
-
     $tableNames = ['cars', 'makes', 'colours', 'locations'];
 
     foreach ($tableNames as $tableName) {
@@ -119,7 +118,8 @@ function fillMainTable (Database $db, array $cars, array $reducedMakes, array $r
         $sql = "INSERT INTO `cars` (`make`, `model`, `year`, `colour`, `location`, `image`)"
             . " VALUES (:make, :model, :year, :colour, :location, :image); ";
 
-        $values = [':make' => $makeID[0],
+        $values = [
+            ':make' => $makeID[0],
             ':model' => $car['model'],
             ':year' => $car['year'],
             ':colour' => $colourID[0],
