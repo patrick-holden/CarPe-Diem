@@ -1,0 +1,5 @@
+Fonts for the project:
+    https://www.dafont.com/blacker.font
+    https://fonts.google.com/specimen/Shrikhand
+    https://www.dafont.com/mustardo.font
+    https://fonts.google.com/specimen/Gravitas+One

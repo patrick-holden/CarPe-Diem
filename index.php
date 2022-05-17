@@ -1,4 +1,11 @@
 <?php
+namespace CarpeDiem;
+
+require 'vendor/autoload.php';
+
+use CarpeDiem\Classes\Services\CarService;
+use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
+
 ?>
 
 <!doctype html>
@@ -25,86 +32,14 @@
 </header>
 <main>
     <div class="cars">
-        <div class="imgGrid">
-            <img src="documents/images/background.jpg" class="carBlack">
-            <img src="documents/images/image1.png" class="carImg">
-            <div class="details">
-                <h3 class="make">Make</h3>
-                <h3 class="model">Model</h3>
-            </div>
-            <button class="moreBtn">See More</button>
-        </div>
-
-        <div class="imgGrid">
-            <img src="documents/images/background.jpg" class="carBlack">
-            <img src="documents/images/image2.png" class="carImg">
-            <div class="details">
-                <h3 class="make">Make</h3>
-                <h3 class="model">Model</h3>
-            </div>
-            <button class="moreBtn">See More</button>
-        </div>
-
-        <div class="imgGrid">
-            <img src="documents/images/background.jpg" class="carBlack">
-            <img src="documents/images/image3.png" class="carImg">
-            <div class="details">
-                <h3 class="make">Make</h3>
-                <h3 class="model">Model</h3>
-            </div>
-            <button class="moreBtn">See More</button>
-        </div>
-
-        <div class="imgGrid">
-            <img src="documents/images/background.jpg" class="carBlack">
-            <img src="documents/images/image4.png" class="carImg">
-            <div class="details">
-                <h3 class="make">Make</h3>
-                <h3 class="model">Model</h3>
-            </div>
-            <button class="moreBtn">See More</button>
-        </div>
-
-        <div class="imgGrid">
-            <img src="documents/images/background.jpg" class="carBlack">
-            <img src="documents/images/image5.png" class="carImg">
-            <div class="details">
-                <h3 class="make">Make</h3>
-                <h3 class="model">Model</h3>
-            </div>
-            <button class="moreBtn">See More</button>
-        </div>
-
-        <div class="imgGrid">
-            <img src="documents/images/background.jpg" class="carBlack">
-            <img src="documents/images/image6.png" class="carImg">
-            <div class="details">
-                <h3 class="make">Make</h3>
-                <h3 class="model">Model</h3>
-            </div>
-            <button class="moreBtn">See More</button>
-        </div>
-
-        <div class="imgGrid">
-            <img src="documents/images/background.jpg" class="carBlack">
-            <img src="documents/images/image7.png" class="carImg">
-            <div class="details">
-                <h3 class="make">Make</h3>
-                <h3 class="model">Model</h3>
-            </div>
-            <button class="moreBtn">See More</button>
-        </div>
-
-        <div class="imgGrid">
-            <img src="documents/images/background.jpg" class="carBlack">
-            <img src="documents/images/image8.png" class="carImg">
-            <div class="details">
-                <h3 class="make">Make</h3>
-                <h3 class="model">Model</h3>
-            </div>
-            <button class="moreBtn">See More</button>
-        </div>
+        <?php
+        $carCollection = new CarService();
+        $showCollection = $carCollection->getCarCollection()->getCars();
+        echo CarViewHelper::showCollection($showCollection);
+        ?>
     </div>
 </main>
 </body>
 </html>
+
+
