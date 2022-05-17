@@ -5,6 +5,11 @@ require 'vendor/autoload.php';
 
 use CarpeDiem\Classes\Services\CarService;
 use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
+use CarpeDiem\Classes\ViewHelpers\MakesViewHelper;
+//use CarpeDiem\Classes\DataAccess\MakesColDAO;
+//use CarpeDiem\Classes\Entities\MakesCollection;
+
+$carCollection = new CarService();
 
 ?>
 
@@ -30,10 +35,18 @@ use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
         </div>
     </div>
 </header>
+<section>
+    <div class="dropdown">
+        <?php
+        $carCollectionResult = $carCollection->getCarMakes();
+        $carMakesList = $carCollectionResult->getMakes();
+        echo MakesViewHelper::allMakesDropDown($carMakesList);
+        ?>
+    </div>
+</section>
 <main>
     <div class="cars">
         <?php
-        $carCollection = new CarService();
         $showCollection = $carCollection->getCarCollection()->getCars();
         echo CarViewHelper::showCollection($showCollection);
         ?>
