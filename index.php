@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="csss/style.css">
-    <title>Document</title>
+    <title>CarPe-Diem</title>
 </head>
+
 <body>
 <header>
     <div class="jumbo">
@@ -103,7 +104,6 @@
             </div>
             <button class="moreBtn">See More</button>
         </div>
-
     </div>
 </main>
 </body>
