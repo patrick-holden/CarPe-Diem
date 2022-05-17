@@ -16,6 +16,12 @@ Navigate into the newly created repo:
 cd 2022-mar-carcollection
 ```
 
+Run this to install auto-load:
+
+```bash
+composer dump-autoload
+```
+
 Run this to initialise SASS:
 
 ```bash
