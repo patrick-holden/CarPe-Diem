@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+$bg-colour: #FFFFFF;
+$text-colour: #000000;
+$title-font: 'Oxygen', sans-serif;
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: $title-font;
+  font-weight: normal;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+
+  .jumbo {
+    background: url('../documents/images/jumbo3.jpg') no-repeat center center/cover;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .jumbo-container {
+      display: flex;
+      flex-direction: column;
+      border: 4px solid;
+      color: $bg-colour;
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        padding: 1rem 1.5rem;
+        text-align: center;
+        margin: 0 1rem;
+      }
+
+      p {
+        text-align: center;
+        font-size: 2rem;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+main {
+  background-color: $bg-colour;
+  margin: 0;
+
+  .cars {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 2rem;
+
+    .imgGrid {
+      max-height: 25rem;
+      max-width: 21.9rem;
+      min-width: 21.9rem;
+      object-fit: contain;
+      display: grid;
+      grid-template-rows: repeat(2, 12.4rem);
+
+      .carBlack {
+        max-width: 100%;
+        min-width: 100%;
+        max-height: 17.2rem;
+        grid-row: 1/3;
+        grid-column: 1/2;
+      }
+      .carImg {
+        grid-row: 2/3;
+        grid-column: 1/2;
+        filter: grayscale(50%);
+      }
+      img {
+        max-width: 100%;
+        min-width: 100%;
+        max-height: 9.4rem;
+      }
+      .moreBtn {
+        grid-row: 2/3;
+        grid-column: 1/2;
+        align-self: end;
+        background-color: $bg-colour;
+        border: 1px solid $text-colour;
+        padding: 0.7rem 0.3rem;
+        width: 90%;
+        justify-self: center;
+        font-weight: 700;
+      }
+
+      .moreBtn:hover {
+        border: 2px solid $text-colour;
+      }
+
+      .details {
+        grid-row: 1/2;
+        grid-column: 1/2;
+        align-self: center;
+        color: $bg-colour;
+        justify-self: center;
+        text-align: center;
+
+        .make {
+          font-weight: bold;
+          margin: 0.5rem;
+        }
+
+        .model {
+          font-size: 2rem;
+          margin: 0.5rem;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 660px) {
+  header {
+    .jumbo {
+      .jumbo-container {
+        h1 {
+          font-size: 5rem;
+          margin: 0 19rem;
+        }
+      }
+    }
+  }
+  main {
+    .cars {
+      padding: 0;
+      margin: 2rem 0;
+      column-gap: 2rem;
+    }
+  }
+}
+
+
+
