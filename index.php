@@ -6,8 +6,6 @@ require 'vendor/autoload.php';
 use CarpeDiem\Classes\Services\CarService;
 use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
 use CarpeDiem\Classes\ViewHelpers\MakesViewHelper;
-//use CarpeDiem\Classes\DataAccess\MakesColDAO;
-//use CarpeDiem\Classes\Entities\MakesCollection;
 
 $carCollection = new CarService();
 
