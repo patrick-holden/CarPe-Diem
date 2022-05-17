@@ -7,6 +7,13 @@ use CarpeDiem\Classes\Services\CarService;
 use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
 use CarpeDiem\Classes\ViewHelpers\MakesViewHelper;
 
+$carMakeName = '';
+
+if (isset($_POST['makes'])) {
+    $carMakeName = $_POST['makes'];
+}
+
+
 $carCollection = new CarService();
 
 ?>
@@ -45,7 +52,7 @@ $carCollection = new CarService();
 <main>
     <div class="cars">
         <?php
-        $showCollection = $carCollection->getCarCollection()->getCars();
+        $showCollection = $carCollection->getCarCollection()->getCars($carMakeName);
         echo CarViewHelper::showCollection($showCollection);
         ?>
     </div>
