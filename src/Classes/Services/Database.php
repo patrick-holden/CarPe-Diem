@@ -45,5 +45,3 @@ class Database // singleton
     {
         return $this->pdo;
     }
-
-}
