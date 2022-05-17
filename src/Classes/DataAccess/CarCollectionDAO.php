@@ -9,7 +9,7 @@ class CarCollectionDAO
 {
     public static function fetchAllCars(Database $db): CarCollection
     {
-        $sql = 'SELECT `cars`.`id`, `makes`.`makes`, `model`, `year`, `colours`.`colours`, `locations`.`locations`, `image`'
+        $sql = 'SELECT `cars`.`id`, `makes`.`make`, `model`, `year`, `colours`.`colour`, `locations`.`location`, `image`'
             . 'FROM `cars` '
             . 'INNER JOIN `makes`'
             .'ON `cars`. `make` = `makes` .`id`'

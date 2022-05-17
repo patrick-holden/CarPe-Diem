@@ -47,9 +47,10 @@ function dropTablesIfExist(Database $db): bool
 // Create empty tables
 function createTables(Database $db, string $tableName): bool
 {
+    $fieldName = rtrim($tableName, 's');
     $sql = "CREATE TABLE `$tableName` ("
         . '`id` int(11) unsigned NOT NULL AUTO_INCREMENT,'
-        . "`$tableName` varchar(255) DEFAULT NULL,"
+        . "`$fieldName` varchar(255) DEFAULT NULL,"
         . 'PRIMARY KEY (`id`)'
         . ') ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;';
 
@@ -135,10 +136,10 @@ function fillMainTable (Database $db, array $cars, array $reducedMakes, array $r
     return true;
 }
 
-function fillTables(Database $db, string $tableName, array $data): bool
+function fillTables(Database $db, string $tableName, string $fieldName, array $data): bool
 {
     foreach ($data as $dt) {
-        $sql = "INSERT INTO `$tableName` (`$tableName`) VALUES (:data); ";
+        $sql = "INSERT INTO `$tableName` (`$fieldName`) VALUES (:data); ";
 
         $values = [':data' => $dt];
 
@@ -158,9 +159,9 @@ createTables($db, 'makes');
 createTables($db, 'colours');
 createTables($db, 'locations');
 
-fillTables($db, 'makes', $reducedMakes);
-fillTables($db, 'colours', $reducedColours);
-fillTables($db, 'locations', $reducedLocations);
+fillTables($db, 'makes', 'make', $reducedMakes);
+fillTables($db, 'colours', 'colour', $reducedColours);
+fillTables($db, 'locations', 'location', $reducedLocations);
 
 createMainTable($db);
 
