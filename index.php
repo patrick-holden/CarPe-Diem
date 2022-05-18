@@ -5,6 +5,15 @@ require 'vendor/autoload.php';
 
 use CarpeDiem\Classes\Services\CarService;
 use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
+use CarpeDiem\Classes\ViewHelpers\MakesViewHelper;
+use CarpeDiem\Classes\ViewHelpers\searchViewHelper;
+
+$carMakeName = '';
+if (isset($_POST['makes'])) {
+    $carMakeName = $_POST['makes'];
+}
+
+$carCollection = new CarService();
 
 ?>
 
@@ -31,13 +40,23 @@ use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
     </div>
 </header>
 <main>
+    <div>
+        <?php
+        echo searchViewHelper::displaySearchInput($_POST["search"]);
+        echo searchViewHelper::clearSearch();
+        ?>
+    </div>
+
     <div class="cars">
         <?php
-        $carCollection = new CarService();
-        $showCollection = $carCollection->getCarCollection()->getCars();
+        $searchTerm = $_POST['search'];
+        $showCollection = $carCollection->getCarCollection($searchTerm)->getCars($carMakeName);
+        $_POST["search"] = '';
         echo CarViewHelper::showCollection($showCollection);
+
         ?>
     </div>
 </main>
 </body>
 </html>
+

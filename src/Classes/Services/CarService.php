@@ -13,8 +13,9 @@ class CarService
         $this->db = Database::getInstance();
     }
 
-    public function getCarCollection(): CarCollection
+    public function getCarCollection(string $searchTerm = ''): CarCollection
     {
-        return CarCollectionDAO::fetchAllCars($this->db);
+        return CarCollectionDAO::fetchAllCars($this->db, $searchTerm);
     }
+
 }

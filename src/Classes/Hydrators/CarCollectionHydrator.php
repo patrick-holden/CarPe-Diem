@@ -23,6 +23,7 @@ class CarCollectionHydrator
                 $collectedCars[] = $car;
             }
             $carCollection->setCollectedCars($collectedCars);
+
         }
 
         return $carCollection;
