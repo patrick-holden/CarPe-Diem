@@ -6,6 +6,15 @@ class CarCollection
 {
     private array $cars = [];
 
+    /**
+     * @param array $cars
+     */
+    public function __construct(array $cars)
+    {
+        $this->cars = $cars;
+    }
+
+
     public function getCars(array $isFilter): array
     {
         if (!$isFilter['make'] && !$isFilter['colour']) {
