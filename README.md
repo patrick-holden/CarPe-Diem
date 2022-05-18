@@ -1,5 +1,5 @@
 # CarPe-Diem
-A app to display a collection of cars.
+An app to display a collection of cars.
 
 ## Description
 CarPe-Diem is an object-oriented PHP project, styled with SASS, that fetches and displays information about different cars from a MySQL database.

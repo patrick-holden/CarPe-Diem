@@ -59,5 +59,3 @@ $carCollection = new CarService();
 </main>
 </body>
 </html>
-
-

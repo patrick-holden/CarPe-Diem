@@ -26,7 +26,7 @@ header .jumbo {
 header .jumbo .jumbo-container {
   display: flex;
   flex-direction: column;
-  border: 4px solid;
+  border: 0.25rem solid #FFFFFF;
   color: #FFFFFF;
 }
 header .jumbo .jumbo-container h1 {
