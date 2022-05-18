@@ -4,7 +4,9 @@ namespace CarpeDiem\Classes\Services;
 use CarpeDiem\Classes\DataAccess\CarCollectionDAO;
 use CarpeDiem\Classes\Entities\CarCollection;
 use CarpeDiem\Classes\Entities\MakesCollection;
+use CarpeDiem\Classes\Entities\ColoursCollection;
 use CarpeDiem\Classes\DataAccess\MakeColDAO;
+use CarpeDiem\Classes\DataAccess\ColourColDAO;
 
 class CarService
 {
@@ -34,5 +36,21 @@ class CarService
         $makesCollection->setMakes($makesArray);
 
         return $makesCollection;
+    }
+
+    public function getCarColours(): ColoursCollection
+    {
+        $coloursDAOArray = ColourColDAO::fetchAllMakes($this->db);
+
+        $coloursArray =[];
+
+        foreach ($coloursDAOArray as $colour){
+            array_push($coloursArray, $colour['colour']);
+        }
+
+        $coloursCollection = new ColoursCollection();
+        $coloursCollection->setMakes($coloursArray);
+
+        return $coloursCollection;
     }
 }

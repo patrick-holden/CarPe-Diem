@@ -7,7 +7,7 @@ use CarpeDiem\Classes\Services\CarService;
 use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
 use CarpeDiem\Classes\ViewHelpers\MakesViewHelper;
 
-$carMakeName = '';
+$isFilter = '';
 
 if (isset($_POST['makes'])) {
     $carMakeName = $_POST['makes'];
