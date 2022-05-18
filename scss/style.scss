@@ -51,48 +51,52 @@ header {
   }
 }
 
-section {
+.dropdown {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  padding: 1rem 0;
+  max-width: 22rem;
+  min-width: 22rem;
+  margin: 0 auto;
 
-  .dropdown {
+  form {
     display: flex;
-    justify-content: space-between;
-    padding: 1rem 0;
-    max-width: 22rem;
-    min-width: 22rem;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      justify-content: space-between;
-      align-items: center;
-    }
+  select {
+    height: 100%;
+    background-color: $bg-colour;
+    border: 1px solid $text-colour;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
 
-    select {
-      height: 100%;
-      background-color: $bg-colour;
-      border: 1px solid $text-colour;
-      width: 50%;
-    }
+  label {
+    padding: 0.5rem 0;
+  }
 
-    button {
-      font-family: $title-font;
-      padding: 0.5rem 1rem;
-      background-color: $bg-colour;
-      border: 2px solid $text-colour;
-      font-weight: 500;
-      transition: 0.3s;
-    }
+  button {
+    font-family: $title-font;
+    padding: 0.5rem 1rem;
+    background-color: $bg-colour;
+    border: 2px solid $text-colour;
+    font-weight: 500;
+    transition: 0.3s;
+    margin-top: 0.6rem;
+    width: 100%;
+  }
 
-    button:hover {
-      border: 2px solid $text-colour;
-      background-color: $text-colour;
-      color: $bg-colour;
-    }
+  button:hover {
+    border: 2px solid $text-colour;
+    background-color: $text-colour;
+    color: $bg-colour;
   }
 }
+
 
 main {
   background-color: $bg-colour;
@@ -185,6 +189,32 @@ main {
           margin: 0 19rem;
         }
       }
+    }
+  }
+
+  .dropdown {
+    flex-direction: row;
+    max-width: 80%;
+    justify-content: space-between;
+
+    select {
+      width: 10rem;
+      padding: 0 1rem;
+    }
+
+    label {
+      min-width: 7rem;
+    }
+
+    form {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    button {
+      width: 10rem;
+      margin: 0;
     }
   }
 
