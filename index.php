@@ -57,6 +57,7 @@ $carCollection = new CarService();
             ?>
             <button>Filter</button>
         </form>
+        <button onclick="window.location.href='index.php';">Clear</button>
     </div>
 </section>
 <main>
