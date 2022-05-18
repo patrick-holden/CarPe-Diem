@@ -184,9 +184,10 @@ main {
   header {
     .jumbo {
       .jumbo-container {
+        margin: 0 5rem;
+
         h1 {
           font-size: 5rem;
-          margin: 0 19rem;
         }
       }
     }
@@ -199,7 +200,8 @@ main {
 
     select {
       width: 10rem;
-      padding: 0 1rem;
+      padding: 0 0.5rem;
+      text-align: left;
     }
 
     label {
