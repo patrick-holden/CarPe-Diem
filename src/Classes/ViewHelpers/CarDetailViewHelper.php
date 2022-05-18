@@ -11,7 +11,7 @@ class CarDetailViewHelper
         $carDetailStr = '<div class="detail-container">'
                             . '<div class="imgGrid">'
                                 . '<img src="documents/images/background.jpg" class="bg-black" alt="black background">'
-                                . '<img src=documents/images/' . $car->getImage() . ' class="bg-car" alt=" Car image">'
+                                . '<img src="documents/images/' . $car->getImage() . '" class="bg-car" alt=" Car image">'
                             . '</div>'
                             . '<div>'
                             . '<div class="info-container">'
