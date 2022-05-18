@@ -18,15 +18,19 @@ class CarViewHelperTest extends TestCase
     {
         $carViewHelper = new CarViewHelper();
         $car = $this->createMock(Car::class);
+
         $car->expects($this->once())
             ->method('getImage')
             ->willReturn('image1.png');
+
         $car->expects($this->once())
             ->method('getMake')
             ->willReturn('Ford');
+
         $car->expects($this->once())
             ->method('getModel')
             ->willReturn('Reno');
+
         $car->expects($this->once())
             ->method('getId')
             ->willReturn(1);

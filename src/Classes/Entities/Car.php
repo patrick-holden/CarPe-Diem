@@ -127,6 +127,4 @@ class Car
     {
         $this->image = $image;
     }
-
-
 }

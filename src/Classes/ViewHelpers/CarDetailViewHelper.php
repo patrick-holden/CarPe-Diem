@@ -33,5 +33,4 @@ class CarDetailViewHelper
                         . '</div>';
         return $carDetailStr;
     }
-
 }

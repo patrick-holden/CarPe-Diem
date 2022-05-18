@@ -15,24 +15,31 @@ class CarDetailViewHelperTest extends TestCase
     {
         $carDetailViewHelper = new CarDetailViewHelper();
         $car = $this->createMock(Car::class);
+
         $car->expects($this->once())
             ->method('getImage')
             ->willReturn('image1.png');
+
         $car->expects($this->once())
             ->method('getMake')
             ->willReturn('Ford');
+
         $car->expects($this->once())
             ->method('getModel')
             ->willReturn('Reno');
+
         $car->expects($this->once())
             ->method('getYear')
             ->willReturn(2000);
+
         $car->expects($this->once())
             ->method('getColour')
             ->willReturn('pink');
+
         $car->expects($this->once())
             ->method('getLocation')
             ->willReturn('Brazil');
+
         $result = $carDetailViewHelper->showDetails($car);
         $expected = '<div class="detail-container">'
             . '<div class="imgGrid">'
