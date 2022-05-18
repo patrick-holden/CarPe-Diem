@@ -19,11 +19,8 @@ class MakesViewHelper
         }
 
         $dropDown .= $list;
-
         $dropDown .= '</select>';
-
         $dropDown .= '<button>Filter</button>';
-
         $dropDown .='</form>';
 
         return $dropDown;
