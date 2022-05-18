@@ -8,8 +8,7 @@ class MakesViewHelper
 {
     public static function allMakesDropDown(array $makesList): string
     {
-        $dropDown = '<form action="index.php" method="post">';
-        $dropDown .= '<label for="makes">Filter by Car</label>';
+        $dropDown = '<label for="makes">Filter by Car</label>';
         $dropDown .= '<select name="makes" id="makes">';
 
         $list = '<option value=""></option>';
@@ -20,8 +19,6 @@ class MakesViewHelper
 
         $dropDown .= $list;
         $dropDown .= '</select>';
-        $dropDown .= '<button>Filter</button>';
-        $dropDown .='</form>';
 
         return $dropDown;
     }
