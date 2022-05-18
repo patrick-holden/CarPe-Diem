@@ -40,6 +40,3 @@ $car = $carService->getCar($carId);
 </main>
 </body>
 </html>
-
-
-

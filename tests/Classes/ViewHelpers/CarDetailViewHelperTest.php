@@ -71,6 +71,6 @@ class CarDetailViewHelperTest extends TestCase
     {
         $carDetailViewHelper = new CarDetailViewHelper();
         $this->expectException(\TypeError::class);
-        $result = $carDetailViewHelper->showDetails(-1);
+        $carDetailViewHelper->showDetails(-1);
     }
 }
