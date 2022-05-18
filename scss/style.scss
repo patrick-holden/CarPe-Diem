@@ -11,6 +11,11 @@ $title-font: 'Oxygen', sans-serif;
   font-weight: normal;
 }
 
+:focus-visible {
+  outline: solid 2px $text-colour;
+  border-radius: 0;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -46,12 +51,54 @@ header {
   }
 }
 
+section {
+  display: flex;
+  justify-content: center;
+
+  .dropdown {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    max-width: 21.9rem;
+    min-width: 21.9rem;
+
+    form {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    select {
+      height: 100%;
+      background-color: $bg-colour;
+      border: 1px solid $text-colour;
+      width: 50%;
+    }
+
+    button {
+      font-family: $title-font;
+      padding: 0.5rem 1rem;
+      background-color: $bg-colour;
+      border: 2px solid $text-colour;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      border: 2px solid $text-colour;
+      background-color: $text-colour;
+      color: $bg-colour;
+    }
+  }
+}
+
 main {
   background-color: $bg-colour;
   margin: 0;
 
   .cars {
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -90,15 +137,18 @@ main {
         grid-column: 1/2;
         align-self: end;
         background-color: $bg-colour;
-        border: 1px solid $text-colour;
+        border: 2px solid $text-colour;
         padding: 0.7rem 0.3rem;
         width: 90%;
         justify-self: center;
         font-weight: 700;
+        transition: 0.3s;
       }
 
       .moreBtn:hover {
         border: 2px solid $text-colour;
+        background-color: $text-colour;
+        color: $bg-colour;
       }
 
       .details {
@@ -139,7 +189,7 @@ main {
   main {
     .cars {
       padding: 0;
-      margin: 2rem 0;
+      margin: 0 0 1rem 0;
       column-gap: 2rem;
     }
   }
