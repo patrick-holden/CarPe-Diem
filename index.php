@@ -44,20 +44,20 @@ $carCollection = new CarService();
         </div>
     </div>
 </header>
-<section>
-    <div class="dropdown">
-        <form action="index.php" method="post">
-            <?php
-            $carMakesResult = $carCollection->getCarMakes();
-            $carMakesList = $carMakesResult->getMakes();
-            echo MakesViewHelper::allMakesDropDown($carMakesList);
-            $carColoursResult = $carCollection->getCarColours();
-            $carColoursList = $carColoursResult->getColours();
-            echo ColoursViewHelper::allColoursDropDown($carColoursList);
-            ?>
-            <button>Filter</button>
-        </form>
-    </div>
+<section class="dropdown">
+    <form action="index.php" method="post">
+        <?php
+        $carMakesResult = $carCollection->getCarMakes();
+        $carMakesList = $carMakesResult->getMakes();
+        echo MakesViewHelper::allMakesDropDown($carMakesList);
+        $carColoursResult = $carCollection->getCarColours();
+        $carColoursList = $carColoursResult->getColours();
+        echo ColoursViewHelper::allColoursDropDown($carColoursList);
+        ?>
+        <button type="submit">Filter</button>
+        <button class="clear-button" onclick="window.location.href='index.php';" type="reset">Clear</button>
+    </form>
+
 </section>
 <main>
     <div class="cars">
