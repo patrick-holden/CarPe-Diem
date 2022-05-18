@@ -55,6 +55,7 @@ section .dropdown {
 }
 section .dropdown form {
   display: flex;
+  flex-direction: column;
   width: 100%;
   justify-content: space-between;
   align-items: center;

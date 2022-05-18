@@ -29,6 +29,13 @@ $reducedMakes = array_values(array_unique($allMakes));
 $reducedColours = array_values(array_unique($allColours));
 $reducedLocations = array_values(array_unique($allLocations));
 
+$reducedColoursNotNull = [];
+foreach ($reducedColours as $reducedColour){
+    if($reducedColour){
+        $reducedColoursNotNull[] = $reducedColour;
+    }
+}
+
 function dropTablesIfExist(Database $db): bool
 {
     $tableNames = ['cars', 'makes', 'colours', 'locations'];
@@ -163,12 +170,12 @@ createTables($db, 'colours');
 createTables($db, 'locations');
 
 fillTables($db, 'makes', 'make', $reducedMakes);
-fillTables($db, 'colours', 'colour', $reducedColours);
+fillTables($db, 'colours', 'colour', $reducedColoursNotNull);
 fillTables($db, 'locations', 'location', $reducedLocations);
 
 createMainTable($db);
 
-$success = fillMainTable($db, $cars, $reducedMakes, $reducedColours, $reducedLocations);
+$success = fillMainTable($db, $cars, $reducedMakes, $reducedColoursNotNull, $reducedLocations);
 
 if (!$success) {
     echo '<h1>Database initialisation Unsuccessful!</h1>';
