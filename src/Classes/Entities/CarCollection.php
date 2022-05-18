@@ -19,4 +19,5 @@ class CarCollection
         $this->cars = $collectedCars;
     }
 
+
 }
