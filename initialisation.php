@@ -144,13 +144,11 @@ function fillTables(Database $db, string $tableName, string $fieldName, array $d
         $values = [':data' => $dt];
 
         $query = $db->getConnection()->prepare($sql);
-
         $success = $query->execute($values);
+
         if (!$success) {
-            echo '<h1>Database creation failed!</h1>';
             return false;
         }
-
     }
 
     return true;
@@ -170,6 +168,11 @@ fillTables($db, 'locations', 'location', $reducedLocations);
 
 createMainTable($db);
 
-fillMainTable($db, $cars, $reducedMakes, $reducedColours, $reducedLocations);
+$success = fillMainTable($db, $cars, $reducedMakes, $reducedColours, $reducedLocations);
 
-echo '<h1>Database successfully initialised!</h1>';
+if (!$success) {
+    echo '<h1>Database initialisation Unsuccessful!</h1>';
+} else {
+    echo '<h1>Database successfully initialised!</h1>';
+}
+
