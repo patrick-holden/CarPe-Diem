@@ -13,7 +13,7 @@ class CarCollectionHydrator
 
         $result = $stmt->fetchAll();
 
-        $carCollection = new CarCollection();
+        $carCollection = new CarCollection([]);
 
         if ($result) {
             $collectedCars = [];
