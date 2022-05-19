@@ -105,7 +105,7 @@ function fillMainTable (Database $db, array $cars, array $reducedMakes, array $r
 
         foreach ($reducedColours as $reducedColour) {
             if (!$car['color']) {
-                $colourID[0] = 15;
+                $colourID[0] = null;
             } elseif ($car['color'] == $reducedColour) {
                 $colourID = array_keys($reducedColours, $reducedColour);
                 $colourID[0]++;

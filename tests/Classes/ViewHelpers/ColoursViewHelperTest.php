@@ -26,7 +26,15 @@ class ColoursViewHelperTest extends TestCase
 
 
         $this->assertEquals($expected, $result);
+    }
 
+    public function testColoursViewHelper_returnsError_GivenInteger()
+    {
+        $integer = 1;
+
+        $this->expectException(TypeError::class);
+
+        ColoursViewHelper::allColoursDropDown($integer);
     }
 
 }
