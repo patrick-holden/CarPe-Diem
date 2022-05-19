@@ -22,12 +22,6 @@ Run this to install auto-load:
 composer dump-autoload
 ```
 
-Run this to initialise SASS:
-
-```bash
-sass --watch style.scss style.css
-```
-
 Create a MySQL database called:
 
 ```bash
