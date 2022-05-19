@@ -13,9 +13,7 @@ if (isset($_POST['makes'])) {
     $carMakeName = $_POST['makes'];
 }
 
-
 $carCollection = new CarService();
-
 ?>
 
 <!doctype html>
@@ -30,7 +28,6 @@ $carCollection = new CarService();
     <link rel="stylesheet" href="css/style.css">
     <title>CarPe-Diem</title>
 </head>
-
 <body>
 <header>
     <div class="jumbo">
@@ -59,5 +56,3 @@ $carCollection = new CarService();
 </main>
 </body>
 </html>
-
-
