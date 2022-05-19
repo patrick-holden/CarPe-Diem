@@ -12,23 +12,25 @@ class CarCollectionDAO
 {
     public static function fetchAllCars(Database $db, string $searchTerm = ''): CarCollection
     {
+        $searchTerm = '%' . $searchTerm . '%';
         $sql = 'SELECT `cars`.`id`, `makes`.`make`, `model`, `year`, `colours`.`colour`, `locations`.`location`, `image`'
             . 'FROM `cars` '
-            . 'LEFT JOIN `makes`'
+            . 'INNER JOIN `makes`'
             . 'ON `cars`. `make` = `makes` .`id`'
-            . 'LEFT JOIN `colours`'
+            . 'INNER JOIN `colours`'
             . 'ON `cars`. `colour` = `colours` .`id`'
-            . 'LEFT JOIN `locations`'
+            . 'INNER JOIN `locations`'
             . 'ON `cars`. `location` = `locations` .`id`'
-                . "WHERE `makes`.`make` LIKE '%$searchTerm%'"
-                . "OR `cars`.`model` LIKE '%$searchTerm%'"
-                . "OR `cars`.`year` LIKE '%$searchTerm%'"
-                . "OR `colours`.`colour` LIKE '%$searchTerm%'"
-                . "OR `locations`.`location` LIKE '%$searchTerm%'"
-                . 'ORDER BY `makes`.`make`, `cars`.`model` ASC';
-        
+            . "WHERE `makes`.`make` LIKE ? "
+            . "OR `cars`.`model` LIKE ? "
+            . "OR `cars`.`year` LIKE ? "
+            . "OR `colours`.`colour` LIKE ? "
+            . "OR `locations`.`location` LIKE ? "
+            . 'ORDER BY `makes`.`make`, `cars`.`model` ASC';
+
+        $values = [$searchTerm, $searchTerm, $searchTerm, $searchTerm, $searchTerm];
         $stmt = $db->getConnection()->prepare($sql);
-        $stmt->execute();
+        $stmt->execute($values);
 
         return CarCollectionHydrator::hydrateFromDb($stmt);
     }
