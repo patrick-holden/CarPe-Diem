@@ -5,7 +5,15 @@ require 'vendor/autoload.php';
 
 use CarpeDiem\Classes\Services\CarService;
 use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
+use CarpeDiem\Classes\ViewHelpers\MakesViewHelper;
 
+$carMakeName = '';
+
+if (isset($_POST['makes'])) {
+    $carMakeName = $_POST['makes'];
+}
+
+$carCollection = new CarService();
 ?>
 
 <!doctype html>
@@ -20,7 +28,6 @@ use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
     <link rel="stylesheet" href="css/style.css">
     <title>CarPe-Diem</title>
 </head>
-
 <body>
 <header>
     <div class="jumbo">
@@ -30,11 +37,19 @@ use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
         </div>
     </div>
 </header>
+<section>
+    <div class="dropdown">
+        <?php
+        $carCollectionResult = $carCollection->getCarMakes();
+        $carMakesList = $carCollectionResult->getMakes();
+        echo MakesViewHelper::allMakesDropDown($carMakesList);
+        ?>
+    </div>
+</section>
 <main>
     <div class="cars">
         <?php
-        $carCollection = new CarService();
-        $showCollection = $carCollection->getCarCollection()->getCars();
+        $showCollection = $carCollection->getCarCollection()->getCars($carMakeName);
         echo CarViewHelper::showCollection($showCollection);
         ?>
     </div>
