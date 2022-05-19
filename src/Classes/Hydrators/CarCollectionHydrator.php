@@ -24,7 +24,7 @@ class CarCollectionHydrator
             }
             $carCollection->setCollectedCars($collectedCars);
         }
-
+        
         return $carCollection;
     }
 }

@@ -16,6 +16,49 @@ $title-font: 'Oxygen', sans-serif;
   border-radius: 0;
 }
 
+.search {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0 0 0;
+  max-width: 22rem;
+  min-width: 22rem;
+  margin: 0 auto;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  input {
+    height: 100%;
+    background-color: $bg-colour;
+    border: 1px solid $text-colour;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  button {
+    font-family: $title-font;
+    padding: 0.5rem 1rem;
+    background-color: $bg-colour;
+    border: 2px solid $text-colour;
+    font-weight: 500;
+    transition: 0.3s;
+    margin-top: 0.6rem;
+    width: 100%;
+  }
+
+  button:hover {
+    border: 2px solid $text-colour;
+    background-color: $text-colour;
+    color: $bg-colour;
+    cursor: pointer;
+  }
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -216,10 +259,47 @@ main {
     }
   }
 
+  .search {
+    margin: 0;
+    padding: 1rem 0;
+    justify-content: space-between;
+
+    form {
+      justify-content: space-between;
+    }
+  }
+
+  .search-filter {
+    display: flex;
+    justify-content: space-evenly;
+
+    input {
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  .filter-dropdowns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .dropdown-and-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
   .dropdown {
     flex-direction: row;
-    max-width: 80%;
+    width: 100%;
     justify-content: space-between;
+    margin: 0;
 
     select {
       width: 10rem;
@@ -229,6 +309,7 @@ main {
 
     label {
       min-width: 7rem;
+      padding: 0.2rem 0;
     }
 
     form {

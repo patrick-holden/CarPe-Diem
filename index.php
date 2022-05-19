@@ -1,4 +1,5 @@
 <?php
+
 namespace CarpeDiem;
 
 require 'vendor/autoload.php';
@@ -7,9 +8,15 @@ use CarpeDiem\Classes\Services\CarService;
 use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
 use CarpeDiem\Classes\ViewHelpers\ColoursViewHelper;
 use CarpeDiem\Classes\ViewHelpers\MakesViewHelper;
+use CarpeDiem\Classes\ViewHelpers\SearchViewHelper;
+
 
 $isFilter = ['make' => '',
     'colour' => ''];
+
+if (!isset($_POST['search'])) {
+    $_POST['search'] = '';
+}
 
 if (isset($_POST['makes'])) {
     $isFilter['make'] = $_POST['makes'];
@@ -42,28 +49,43 @@ $carCollection = new CarService();
         </div>
     </div>
 </header>
-<section class="dropdown">
-    <form action="index.php" method="post">
+<div class="search-filter">
+    <div class="search">
         <?php
-        $carMakesResult = $carCollection->getCarMakes();
-        $carMakesList = $carMakesResult->getMakes();
-        echo MakesViewHelper::allMakesDropDown($carMakesList);
-        $carColoursResult = $carCollection->getCarColours();
-        $carColoursList = $carColoursResult->getColours();
-        echo ColoursViewHelper::allColoursDropDown($carColoursList);
+        echo SearchViewHelper::setPostToSearchInput($_POST["search"]);
         ?>
-        <button type="submit">Filter</button>
-        <button class="clear-button" onclick="window.location.href='index.php';" type="reset">Clear</button>
-    </form>
-
-</section>
+    </div>
+    <div class="dropdown">
+        <form action="index.php" method="post">
+            <div class="dropdown-and-buttons">
+                <div class="filter-dropdowns">
+                    <?php
+                    $carMakesResult = $carCollection->getCarMakes();
+                    $carMakesList = $carMakesResult->getMakes();
+                    echo MakesViewHelper::allMakesDropDown($carMakesList);
+                    $carColoursResult = $carCollection->getCarColours();
+                    $carColoursList = $carColoursResult->getColours();
+                    echo ColoursViewHelper::allColoursDropDown($carColoursList);
+                    ?>
+                </div>
+                <div class="buttons">
+                    <button type="submit">Filter</button>
+                    <button class="clear-button" onclick="window.location.href='index.php';" type="reset">Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <main>
     <div class="cars">
         <?php
-        $showCollection = $carCollection->getCarCollection()->getCars($isFilter);
+        $searchTerm = $_POST['search'];
+        $searchTerm = (preg_replace('/[^A-Za-z0-9-\s]/', '', $searchTerm));
+        $showCollection = $carCollection->getCarCollection($searchTerm)->getCars($isFilter);
         echo CarViewHelper::showCollection($showCollection);
         ?>
     </div>
 </main>
 </body>
 </html>
+
