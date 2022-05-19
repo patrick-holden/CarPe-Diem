@@ -13,6 +13,10 @@ if (isset($_POST['makes'])) {
     $carMakeName = $_POST['makes'];
 }
 
+if (!isset($_POST['search'])) {
+  $_POST['search'] = '';
+}
+
 $carCollection = new CarService();
 
 ?>
