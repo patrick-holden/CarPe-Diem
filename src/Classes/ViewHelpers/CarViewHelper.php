@@ -1,6 +1,7 @@
 <?php
 
 namespace CarpeDiem\Classes\ViewHelpers;
+
 class CarViewHelper
 {
     public static function showCollection(array $showCollection): string
@@ -24,8 +25,8 @@ class CarViewHelper
                     . '</form>'
                     . '</div>';
             }
-
         }
+        
         return $carStr;
     }
 }

@@ -21,7 +21,6 @@ class CarService
     {
         return CarCollectionDAO::fetchAllCars($this->db, $searchTerm);
     }
-    
 
     public function getCarMakes(): MakesCollection
     {

@@ -64,6 +64,7 @@ class CarDetailViewHelperTest extends TestCase
             . '</div>'
             . '</div>'
             . '</div>';
+
         $this->assertEquals($expected, $result);
     }
 

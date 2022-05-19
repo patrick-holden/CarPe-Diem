@@ -32,5 +32,4 @@ class CarCollectionDAO
 
         return CarCollectionHydrator::hydrateFromDb($stmt);
     }
-    
 }

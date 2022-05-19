@@ -14,6 +14,7 @@ class SearchViewHelper
 
         return $searchFunc;
     }
+
     public static function clearSearch(): string
     {
         $clearSearch = '<form action="index.php" method="post">';
@@ -21,5 +22,4 @@ class SearchViewHelper
 
         return $clearSearch;
     }
-
 }
