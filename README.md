@@ -28,13 +28,14 @@ Create a MySQL database called:
 carsdb
 ```
 
-Ensure your local database host, username and password details are correct in:
+Ensure your local database details match the following: 
 
 ```bash
-src/Classes/Services/Database.php
+username: root
+password: password
 ```
 
-Run `initialisation.php` this will create and fill database tables.
+Open `initialisation.php` in a browser, this will create and fill database tables.
 
 Run `index.php` to see the application!
 
