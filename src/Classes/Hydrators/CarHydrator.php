@@ -18,4 +18,18 @@ class CarHydrator
 
         return $car;
     }
+
+    public static function hydrateFromDb(\PDOStatement $stmt): Car
+    {
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, Car::class);
+
+        $car = $stmt->fetch();
+
+        if (!$car) {
+            return new Car();
+        }
+
+        return $car;
+
+    }
 }

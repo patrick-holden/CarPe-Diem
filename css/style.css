@@ -42,6 +42,7 @@ header .jumbo .jumbo-container p {
   margin-top: 0;
 }
 
+
 section {
   display: flex;
   justify-content: center;
@@ -115,6 +116,7 @@ main .cars .imgGrid img {
   min-width: 100%;
   max-height: 9.4rem;
 }
+
 main .cars .imgGrid .moreBtn {
   grid-row: 2/3;
   grid-column: 1/2;
@@ -159,6 +161,7 @@ main .cars .imgGrid .details .model {
   main .cars {
     padding: 0;
     margin: 0 0 1rem 0;
+
     column-gap: 2rem;
   }
 }
