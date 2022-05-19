@@ -89,6 +89,7 @@ section {
       border: 2px solid $text-colour;
       background-color: $text-colour;
       color: $bg-colour;
+      cursor: pointer;
     }
   }
 }
@@ -105,13 +106,12 @@ main {
     row-gap: 1.5rem;
 
     .imgGrid {
-      max-height: 24rem;
       max-width: 21.9rem;
       min-width: 21.9rem;
       object-fit: contain;
       display: grid;
       grid-template-rows: repeat(2, 11.2rem);
-      margin-bottom: 2rem;
+      box-shadow: 0 3px 5px #00000015;
 
       form {
         display: flex;
@@ -124,12 +124,14 @@ main {
           border: 2px solid $text-colour;
           font-weight: 500;
           transition: 0.3s;
+          margin-bottom: 1rem;
         }
 
         button:hover {
           border: 2px solid $text-colour;
           background-color: $text-colour;
           color: $bg-colour;
+          cursor: pointer;
         }
       }
 

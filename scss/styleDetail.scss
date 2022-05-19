@@ -13,14 +13,28 @@ $title-font: 'Oxygen', sans-serif;
 }
 
 body {
-  margin: 0.5rem;
 
   header {
     display: flex;
-    flex-direction: column;
-    box-shadow: 0 0.5rem 1rem $shadow-colour;
+    box-shadow: 0 3px 5px #00000015;
     justify-content: center;
+    align-items: center;
     text-align: center;
+
+    .material-icons {
+      padding: 1rem;
+      font-size: 3rem;
+      text-decoration: none;
+    }
+
+    a {
+      color: $text-colour;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      opacity: 60%;
+    }
 
     form {
       display: flex;
@@ -79,11 +93,12 @@ body {
 
       .make-model {
 
-        h2{
+        h2 {
           font-weight: 700;
         }
 
-        box-shadow: 0 0.5rem 0.5rem $shadow-colour;
+        box-shadow: 0 3px 5px #00000015;
+
         .text-1 {
           font-weight: 300;
         }
@@ -94,10 +109,10 @@ body {
       }
 
       .year-colour {
-        box-shadow: 0 0.5rem 0.5rem $shadow-colour;
+        box-shadow: 0 3px 5px #00000015;
         z-index: -1;
 
-        h2{
+        h2 {
           font-weight: 700;
         }
 
@@ -111,7 +126,11 @@ body {
       }
 
       .location {
-        box-shadow: 0 0.5rem 0.5rem $shadow-colour;
+        box-shadow: 0 3px 5px #00000015;
+
+        h2 {
+          font-weight: 700;
+        }
       }
     }
   }
