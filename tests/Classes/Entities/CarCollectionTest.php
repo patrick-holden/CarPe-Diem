@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
-require_once '../../../src/Classes/Entities/Car.php';
-require_once '../../../src/Classes/Entities/CarCollection.php';
+require_once __DIR__ . '/../../../src/Classes/Entities/Car.php';
+require_once __DIR__ . '/../../../src/Classes/Entities/CarCollection.php';
 
 use CarpeDiem\Classes\Entities\Car;
 use PHPUnit\Framework\TestCase;
@@ -9,7 +9,7 @@ use CarpeDiem\Classes\Entities\CarCollection;
 
 class CarCollectionTest extends TestCase
 {
-    public function testGetCars_returnsValidArray_GivenValidArray()
+    public function testGetCarsWithSingleCar_returnsValidArray_GivenValidFilterArray()
     {
         $car = $this->createMock(Car::class);
 

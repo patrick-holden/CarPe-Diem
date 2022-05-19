@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
-require_once '../../../src/Classes/Hydrators/CarHydrator.php';
-require_once '../../../src/Classes/Entities/Car.php';
+require_once __DIR__ . '/../../../src/Classes/Hydrators/CarHydrator.php';
+require_once __DIR__ . '/../../../src/Classes/Entities/Car.php';
 
 use CarpeDiem\Classes\Entities\Car;
 use CarpeDiem\Classes\Hydrators\CarHydrator;
