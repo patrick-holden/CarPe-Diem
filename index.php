@@ -48,6 +48,7 @@ $carCollection = new CarService();
         <?php
         echo searchViewHelper::displaySearchInput($_POST["search"]);
         echo searchViewHelper::clearSearch();
+
         ?>
     </div>
 
@@ -55,9 +56,7 @@ $carCollection = new CarService();
         <?php
         $searchTerm = $_POST['search'];
         $showCollection = $carCollection->getCarCollection($searchTerm)->getCars($carMakeName);
-        $_POST["search"] = '';
         echo CarViewHelper::showCollection($showCollection);
-
         ?>
     </div>
 </main>

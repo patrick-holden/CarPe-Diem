@@ -8,7 +8,7 @@ class searchViewHelper
     {
         $searchFunc = '<form action="index.php" method="post">';
         $searchFunc .= '<label for="search">Search:</label>';
-        $searchFunc .= '<input type="text" name="search" id="search" value="' . $lastSearch .'">';
+        $searchFunc .= '<input type="text" name="search" id="search" value="' . htmlentities($lastSearch) .'">';
         $searchFunc .= '<button>Search</button>';
         $searchFunc .='</form>';
 
