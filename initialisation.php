@@ -170,7 +170,7 @@ createTables($db, 'colours');
 createTables($db, 'locations');
 
 fillTables($db, 'makes', 'make', $reducedMakes);
-fillTables($db, 'colours', 'colour', $reducedColours);
+fillTables($db, 'colours', 'colour', $reducedColoursNotNull);
 fillTables($db, 'locations', 'location', $reducedLocations);
 
 createMainTable($db);

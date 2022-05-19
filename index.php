@@ -5,12 +5,17 @@ require 'vendor/autoload.php';
 
 use CarpeDiem\Classes\Services\CarService;
 use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
+use CarpeDiem\Classes\ViewHelpers\ColoursViewHelper;
 use CarpeDiem\Classes\ViewHelpers\MakesViewHelper;
 
-$carMakeName = '';
+$isFilter = ['make' => '',
+    'colour' => ''];
 
 if (isset($_POST['makes'])) {
-    $carMakeName = $_POST['makes'];
+    $isFilter['make'] = $_POST['makes'];
+}
+if (isset($_POST['colours'])) {
+    $isFilter['colour'] = $_POST['colours'];
 }
 
 $carCollection = new CarService();
@@ -37,19 +42,25 @@ $carCollection = new CarService();
         </div>
     </div>
 </header>
-<section>
-    <div class="dropdown">
+<section class="dropdown">
+    <form action="index.php" method="post">
         <?php
-        $carCollectionResult = $carCollection->getCarMakes();
-        $carMakesList = $carCollectionResult->getMakes();
+        $carMakesResult = $carCollection->getCarMakes();
+        $carMakesList = $carMakesResult->getMakes();
         echo MakesViewHelper::allMakesDropDown($carMakesList);
+        $carColoursResult = $carCollection->getCarColours();
+        $carColoursList = $carColoursResult->getColours();
+        echo ColoursViewHelper::allColoursDropDown($carColoursList);
         ?>
-    </div>
+        <button type="submit">Filter</button>
+        <button class="clear-button" onclick="window.location.href='index.php';" type="reset">Clear</button>
+    </form>
+
 </section>
 <main>
     <div class="cars">
         <?php
-        $showCollection = $carCollection->getCarCollection()->getCars($carMakeName);
+        $showCollection = $carCollection->getCarCollection()->getCars($isFilter);
         echo CarViewHelper::showCollection($showCollection);
         ?>
     </div>
