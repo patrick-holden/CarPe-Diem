@@ -3,6 +3,7 @@
 namespace CarpeDiem\Classes\Services;
 use CarpeDiem\Classes\DataAccess\CarCollectionDAO;
 use CarpeDiem\Classes\DataAccess\CarDAO;
+use CarpeDiem\Classes\DataAccess\ColourColDAO;
 use CarpeDiem\Classes\Entities\CarCollection;
 use CarpeDiem\Classes\Entities\ColoursCollection;
 use CarpeDiem\Classes\Entities\MakesCollection;
