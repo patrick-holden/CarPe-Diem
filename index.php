@@ -6,7 +6,7 @@ require 'vendor/autoload.php';
 use CarpeDiem\Classes\Services\CarService;
 use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
 use CarpeDiem\Classes\ViewHelpers\MakesViewHelper;
-use CarpeDiem\Classes\ViewHelpers\searchViewHelper;
+use CarpeDiem\Classes\ViewHelpers\SearchViewHelper;
 
 $carMakeName = '';
 if (isset($_POST['makes'])) {
