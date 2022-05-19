@@ -2,7 +2,7 @@
 An app to display a collection of cars.
 
 ## Description
-CarPe-Diem is an object-oriented PHP project, styled with SASS, that fetches and displays information about different cars from a MySQL database.
+CarPe-Diem is an object-oriented PHP project, styled with SASS, that fetches and displays information about different cars from a MySQL database. The database is built and populated using a utility tool that fetches the data from an existing API.
 
 ## Getting Started
 Clone this repo:
@@ -16,21 +16,28 @@ Navigate into the newly created repo:
 cd 2022-mar-carcollection
 ```
 
-Run this to initialise SASS:
+Run this to install auto-load:
 
 ```bash
-sass --watch style.scss style.css
+composer dump-autoload
 ```
 
-Install the database `/XXXXXXXXX.sql` into a db named `XXXXXXXX`
-
-Ensure your local database host, username and password details are correct in:
+Create a MySQL database called:
 
 ```bash
-XXX
+carsdb
 ```
 
-The application will now be available wherever you access your PHP prejects :-)
+Ensure your local database details match the following: 
+
+```bash
+username: root
+password: password
+```
+
+Open `initialisation.php` in a browser, this will create and fill database tables.
+
+Run `index.php` to see the application!
 
 ## Authors
 
