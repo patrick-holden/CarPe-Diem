@@ -6,6 +6,11 @@
   font-weight: normal;
 }
 
+:focus-visible {
+  outline: solid 2px #000000;
+  border-radius: 0;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -37,24 +42,79 @@ header .jumbo .jumbo-container p {
   margin-top: 0;
 }
 
+section {
+  display: flex;
+  justify-content: center;
+}
+section .dropdown {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  max-width: 21.9rem;
+  min-width: 21.9rem;
+}
+section .dropdown form {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+section .dropdown select {
+  height: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #000000;
+  width: 50%;
+}
+section .dropdown button {
+  font-family: "Oxygen", sans-serif;
+  padding: 0.5rem 1rem;
+  background-color: #FFFFFF;
+  border: 2px solid #000000;
+  font-weight: 500;
+  transition: 0.3s;
+}
+section .dropdown button:hover {
+  border: 2px solid #000000;
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
 main {
   background-color: #FFFFFF;
   margin: 0;
 }
 main .cars {
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  row-gap: 2rem;
+  row-gap: 1.5rem;
 }
 main .cars .imgGrid {
-  max-height: 25rem;
+  max-height: 24rem;
   max-width: 21.9rem;
   min-width: 21.9rem;
   object-fit: contain;
   display: grid;
-  grid-template-rows: repeat(2, 12.4rem);
+  grid-template-rows: repeat(2, 11.2rem);
+  margin-bottom: 2rem;
+}
+main .cars .imgGrid form {
+  display: flex;
+  justify-content: center;
+}
+main .cars .imgGrid form button {
+  font-family: "Oxygen", sans-serif;
+  padding: 0.5rem 1rem;
+  background-color: #FFFFFF;
+  border: 2px solid #000000;
+  font-weight: 500;
+  transition: 0.3s;
+}
+main .cars .imgGrid form button:hover {
+  border: 2px solid #000000;
+  background-color: #000000;
+  color: #FFFFFF;
 }
 main .cars .imgGrid .carBlack {
   max-width: 100%;
@@ -78,14 +138,17 @@ main .cars .imgGrid .moreBtn {
   grid-column: 1/2;
   align-self: end;
   background-color: #FFFFFF;
-  border: 0.06rem solid #000000;
+  border: 2px solid #000000;
   padding: 0.7rem 0.3rem;
   width: 90%;
   justify-self: center;
   font-weight: 700;
+  transition: 0.3s;
 }
 main .cars .imgGrid .moreBtn:hover {
-  border: 0.13rem solid #000000;
+  border: 2px solid #000000;
+  background-color: #000000;
+  color: #FFFFFF;
 }
 main .cars .imgGrid .details {
   grid-row: 1/2;
@@ -113,7 +176,7 @@ main .cars .imgGrid .details .model {
 
   main .cars {
     padding: 0;
-    margin: 2rem 0;
+    margin: 0 0 1rem 0;
     column-gap: 2rem;
   }
 }

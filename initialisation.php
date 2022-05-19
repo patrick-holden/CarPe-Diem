@@ -26,8 +26,15 @@ foreach ($cars as $car) {
 
 // Remove duplicates from each array.
 $reducedMakes = array_values(array_unique($allMakes));
-$reducedColours = array_values(array_unique($allColours));
+$reducedColoursWithNull = array_values(array_unique($allColours));
 $reducedLocations = array_values(array_unique($allLocations));
+
+$reducedColours = [];
+foreach ($reducedColoursWithNull as $reducedColour) {
+    if ($reducedColour) {
+        $reducedColours[] = $reducedColour;
+    }
+}
 
 function dropTablesIfExist(Database $db): bool
 {
@@ -98,7 +105,7 @@ function fillMainTable (Database $db, array $cars, array $reducedMakes, array $r
 
         foreach ($reducedColours as $reducedColour) {
             if (!$car['color']) {
-                $colourID[0] = 15;
+                $colourID[0] = null;
             } elseif ($car['color'] == $reducedColour) {
                 $colourID = array_keys($reducedColours, $reducedColour);
                 $colourID[0]++;

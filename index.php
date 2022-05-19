@@ -6,6 +6,7 @@ require 'vendor/autoload.php';
 use CarpeDiem\Classes\Services\CarService;
 use CarpeDiem\Classes\ViewHelpers\CarViewHelper;
 use CarpeDiem\Classes\ViewHelpers\MakesViewHelper;
+
 use CarpeDiem\Classes\ViewHelpers\searchViewHelper;
 
 $carMakeName = '';
@@ -17,8 +18,11 @@ if (!isset($_POST['search'])) {
   $_POST['search'] = '';
 }
 
-$carCollection = new CarService();
+if (isset($_POST['makes'])) {
+    $carMakeName = $_POST['makes'];
+}
 
+$carCollection = new CarService();
 ?>
 
 <!doctype html>
@@ -33,7 +37,6 @@ $carCollection = new CarService();
     <link rel="stylesheet" href="css/style.css">
     <title>CarPe-Diem</title>
 </head>
-
 <body>
 <header>
     <div class="jumbo">
@@ -43,19 +46,27 @@ $carCollection = new CarService();
         </div>
     </div>
 </header>
-<main>
+<section>
     <div>
         <?php
         echo searchViewHelper::displaySearchInput($_POST["search"]);
         echo searchViewHelper::clearSearch();
-
         ?>
     </div>
-
+    <div class="dropdown">
+        <?php
+        $carCollectionResult = $carCollection->getCarMakes();
+        $carMakesList = $carCollectionResult->getMakes();
+        echo MakesViewHelper::allMakesDropDown($carMakesList);
+        ?>
+    </div>
+</section>
+<main>
     <div class="cars">
         <?php
         $searchTerm = $_POST['search'];
         $showCollection = $carCollection->getCarCollection($searchTerm)->getCars($carMakeName);
+
         echo CarViewHelper::showCollection($showCollection);
         ?>
     </div>

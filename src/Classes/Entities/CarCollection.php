@@ -9,14 +9,24 @@ class CarCollection
     /**
      * @return array
      */
-    public function getCars(): array
+    public function getCars(string $carMakeName): array
     {
-        return $this->cars;
+        if (!$carMakeName) {
+            return $this->cars;
+        }
+
+        $filteredCars = [];
+
+        foreach ($this->cars as $car) {
+            if ($car->getMake() == $carMakeName) {
+                $filteredCars[] = $car;
+            }
+        }
+        return $filteredCars;
     }
 
     public function setCollectedCars(array $collectedCars): void
     {
         $this->cars = $collectedCars;
     }
-
 }

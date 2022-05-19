@@ -25,9 +25,7 @@ class CarCollectionHydrator
             $carCollection->setCollectedCars($collectedCars);
 
         }
-        if ($carCollection->getCars() == null) {
-          echo 'Sorry - no cars to display';
-        }
+        
         return $carCollection;
     }
 }
