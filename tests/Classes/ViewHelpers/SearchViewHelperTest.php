@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-require_once '../../../src/Classes/ViewHelpers/SearchViewHelper.php';
+require_once __DIR__ . '/../../../src/Classes/ViewHelpers/SearchViewHelper.php';
 
 use CarpeDiem\Classes\ViewHelpers\SearchViewHelper;
 use PHPUnit\Framework\TestCase;
 class SearchViewHelperTest extends TestCase
 {
     public function testdisplaySearchInput_givenString_returnsString() {
-        $str = 'testdata';
+        $str = htmlentities('testdata');
 
         $expected = '<form action="index.php" method="post">';
         $expected .= '<label for="search">Search:</label>';
@@ -15,7 +15,7 @@ class SearchViewHelperTest extends TestCase
         $expected .= '<button>Search</button>';
         $expected .= '</form>';
 
-        $result = SearchViewHelper::displaySearchInput($str);
+        $result = SearchViewHelper::setPostToSearchInput($str);
 
         $this->assertEquals($expected, $result);
     }
