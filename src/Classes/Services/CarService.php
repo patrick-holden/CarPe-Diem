@@ -4,11 +4,11 @@ namespace CarpeDiem\Classes\Services;
 use CarpeDiem\Classes\DataAccess\CarCollectionDAO;
 use CarpeDiem\Classes\DataAccess\CarDAO;
 use CarpeDiem\Classes\DataAccess\ColourColDAO;
+use CarpeDiem\Classes\DataAccess\MakeColDAO;
+use CarpeDiem\Classes\Entities\Car;
 use CarpeDiem\Classes\Entities\CarCollection;
 use CarpeDiem\Classes\Entities\ColoursCollection;
 use CarpeDiem\Classes\Entities\MakesCollection;
-use CarpeDiem\Classes\DataAccess\MakeColDAO;
-use CarpeDiem\Classes\Entities\Car;
 
 class CarService
 {
@@ -52,7 +52,7 @@ class CarService
 
         $coloursArray =[];
 
-        foreach ($coloursDAOArray as $colour){
+        foreach ($coloursDAOArray as $colour) {
             $coloursArray[] = $colour['colour'];
         }
 

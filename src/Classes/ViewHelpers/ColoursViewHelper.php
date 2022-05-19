@@ -13,7 +13,7 @@ class ColoursViewHelper
 
         $list = '<option value=""></option>';
 
-        foreach ($coloursList as $colour){
+        foreach ($coloursList as $colour) {
             $list .= '<option value="' . $colour .'">' . $colour . '</option>';
         }
 

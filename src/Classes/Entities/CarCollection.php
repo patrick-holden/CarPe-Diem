@@ -14,7 +14,6 @@ class CarCollection
         $this->cars = $cars;
     }
 
-
     public function getCars(array $isFilter): array
     {
         if (!$isFilter['make'] && !$isFilter['colour']) {
