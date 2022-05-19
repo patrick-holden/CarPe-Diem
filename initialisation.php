@@ -30,8 +30,8 @@ $reducedColoursWithNull = array_values(array_unique($allColours));
 $reducedLocations = array_values(array_unique($allLocations));
 
 $reducedColours = [];
-foreach ($reducedColoursWithNull as $reducedColour){
-    if($reducedColour){
+foreach ($reducedColoursWithNull as $reducedColour) {
+    if ($reducedColour) {
         $reducedColours[] = $reducedColour;
     }
 }

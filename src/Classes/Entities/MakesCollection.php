@@ -14,8 +14,6 @@ class MakesCollection
         return $this->makes;
     }
 
-
-
     public function setMakes(array $makes): void
     {
         $this->makes = $makes;

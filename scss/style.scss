@@ -102,15 +102,37 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    row-gap: 2rem;
+    row-gap: 1.5rem;
 
     .imgGrid {
-      max-height: 25rem;
+      max-height: 24rem;
       max-width: 21.9rem;
       min-width: 21.9rem;
       object-fit: contain;
       display: grid;
-      grid-template-rows: repeat(2, 12.4rem);
+      grid-template-rows: repeat(2, 11.2rem);
+      margin-bottom: 2rem;
+
+      form {
+        display: flex;
+        justify-content: center;
+
+        button {
+          font-family: $title-font;
+          padding: 0.5rem 1rem;
+          background-color: $bg-colour;
+          border: 2px solid $text-colour;
+          font-weight: 500;
+          transition: 0.3s;
+        }
+
+        button:hover {
+          border: 2px solid $text-colour;
+          background-color: $text-colour;
+          color: $bg-colour;
+        }
+      }
+
 
       .carBlack {
         max-width: 100%;

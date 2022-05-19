@@ -28,7 +28,7 @@ class CarService
 
         $makesArray =[];
 
-        foreach ($makesDAOArray as $make){
+        foreach ($makesDAOArray as $make) {
             $makesArray[] = $make['make'];
         }
 
