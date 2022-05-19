@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace CarpeDiem\Tests\Classes\ViewHelpers;
 
-require_once '../../../src/Classes/ViewHelpers/CarViewHelper.php';
-require_once '../../../src/Classes/Entities/CarCollection.php';
-require_once '../../../src/Classes/Entities/Car.php';
+require_once __DIR__  . '/../../../src/Classes/ViewHelpers/CarViewHelper.php';
+require_once __DIR__ . '/../../../src/Classes/Entities/CarCollection.php';
+require_once __DIR__  . '/../../../src/Classes/Entities/Car.php';
 
 use CarpeDiem\Classes\Entities\Car;
 use CarpeDiem\Classes\ViewHelpers\CarViewHelper;

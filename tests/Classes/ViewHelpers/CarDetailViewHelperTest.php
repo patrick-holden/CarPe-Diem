@@ -2,8 +2,8 @@
 
 namespace CarpeDiem\Tests\Classes\ViewHelpers;
 
-require_once '../../../src/Classes/ViewHelpers/CarDetailViewHelper.php';
-require_once '../../../src/Classes/Entities/Car.php';
+require_once  __DIR__ .'/../../../src/Classes/ViewHelpers/CarDetailViewHelper.php';
+require_once __DIR__  . '/../../../src/Classes/Entities/Car.php';
 
 use CarpeDiem\Classes\Entities\Car;
 use CarpeDiem\Classes\ViewHelpers\CarDetailViewHelper;

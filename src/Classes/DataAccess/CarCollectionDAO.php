@@ -14,13 +14,12 @@ class CarCollectionDAO
         $sql = 'SELECT `cars`.`id`, `makes`.`make`, `model`, `year`, `colours`.`colour`, `locations`.`location`, `image`'
             . 'FROM `cars` '
             . 'INNER JOIN `makes`'
-            .'ON `cars`. `make` = `makes` .`id`'
+            . 'ON `cars`. `make` = `makes` .`id`'
             . 'INNER JOIN `colours`'
-            .'ON `cars`. `colour` = `colours` .`id`'
+            . 'ON `cars`. `colour` = `colours` .`id`'
             . 'INNER JOIN `locations`'
-            .'ON `cars`. `location` = `locations` .`id`';
+            . 'ON `cars`. `location` = `locations` .`id`';
 
-        
         $stmt = $db->getConnection()->prepare($sql);
         $stmt->execute();
 
@@ -32,11 +31,11 @@ class CarCollectionDAO
         $sql = 'SELECT `cars`.`id`, `makes`.`make`, `model`, `year`, `colours`.`colour`, `locations`.`location`, `image`'
             . 'FROM `cars` '
             . 'INNER JOIN `makes`'
-            .'ON `cars`. `make` = `makes` .`id`'
+            . 'ON `cars`. `make` = `makes` .`id`'
             . 'INNER JOIN `colours`'
-            .'ON `cars`. `colour` = `colours` .`id`'
+            . 'ON `cars`. `colour` = `colours` .`id`'
             . 'INNER JOIN `locations`'
-            .'ON `cars`. `location` = `locations` .`id`'
+            . 'ON `cars`. `location` = `locations` .`id`'
             . 'WHERE `cars`.`id` = :carId';
 
         $value = ['carId' => $carId];
@@ -45,6 +44,5 @@ class CarCollectionDAO
         $stmt->execute($value);
 
         return CarHydrator::hydrateFromDb($stmt);
-
     }
 }
