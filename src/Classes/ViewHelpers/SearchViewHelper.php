@@ -2,9 +2,9 @@
 
 namespace CarpeDiem\Classes\ViewHelpers;
 
-class searchViewHelper
+class SearchViewHelper
 {
-    public static function displaySearchInput(string $lastSearch): string
+    public static function setPostToSearchInput(string $lastSearch): string
     {
         $searchFunc = '<form action="index.php" method="post">';
         $searchFunc .= '<label for="search">Search:</label>';

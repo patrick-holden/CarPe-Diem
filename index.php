@@ -49,8 +49,8 @@ $carCollection = new CarService();
 <section>
     <div>
         <?php
-        echo searchViewHelper::displaySearchInput($_POST["search"]);
-        echo searchViewHelper::clearSearch();
+        echo SearchViewHelper::setPostToSearchInput($_POST["search"]);
+        echo SearchViewHelper::clearSearch();
         ?>
     </div>
     <div class="dropdown">
@@ -65,6 +65,7 @@ $carCollection = new CarService();
     <div class="cars">
         <?php
         $searchTerm = $_POST['search'];
+        $searchTerm = (preg_replace('/[^A-Za-z0-9-\s]/', '', $searchTerm));
         $showCollection = $carCollection->getCarCollection($searchTerm)->getCars($carMakeName);
 
         echo CarViewHelper::showCollection($showCollection);
