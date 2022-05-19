@@ -19,7 +19,6 @@ if (isset($_POST['colours'])) {
 }
 
 $carCollection = new CarService();
-
 ?>
 
 <!doctype html>
@@ -34,7 +33,6 @@ $carCollection = new CarService();
     <link rel="stylesheet" href="css/style.css">
     <title>CarPe-Diem</title>
 </head>
-
 <body>
 <header>
     <div class="jumbo">

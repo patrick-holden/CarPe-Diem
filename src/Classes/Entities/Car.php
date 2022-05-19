@@ -63,6 +63,9 @@ class Car
      */
     public function getYear(): int
     {
+        if (!$this->year) {
+            return 0;
+        }
         return $this->year;
     }
 
@@ -79,6 +82,9 @@ class Car
      */
     public function getColour(): string
     {
+        if (!$this->colour) {
+            return '';
+        }
         return $this->colour;
     }
 
@@ -121,5 +127,4 @@ class Car
     {
         $this->image = $image;
     }
-
 }

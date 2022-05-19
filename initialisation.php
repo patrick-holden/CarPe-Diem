@@ -26,13 +26,13 @@ foreach ($cars as $car) {
 
 // Remove duplicates from each array.
 $reducedMakes = array_values(array_unique($allMakes));
-$reducedColours = array_values(array_unique($allColours));
+$reducedColoursWithNull = array_values(array_unique($allColours));
 $reducedLocations = array_values(array_unique($allLocations));
 
-$reducedColoursNotNull = [];
-foreach ($reducedColours as $reducedColour){
-    if($reducedColour){
-        $reducedColoursNotNull[] = $reducedColour;
+$reducedColours = [];
+foreach ($reducedColoursWithNull as $reducedColour) {
+    if ($reducedColour) {
+        $reducedColours[] = $reducedColour;
     }
 }
 
@@ -175,7 +175,7 @@ fillTables($db, 'locations', 'location', $reducedLocations);
 
 createMainTable($db);
 
-$success = fillMainTable($db, $cars, $reducedMakes, $reducedColoursNotNull, $reducedLocations);
+$success = fillMainTable($db, $cars, $reducedMakes, $reducedColours, $reducedLocations);
 
 if (!$success) {
     echo '<h1>Database initialisation Unsuccessful!</h1>';

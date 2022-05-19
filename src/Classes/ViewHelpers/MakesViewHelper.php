@@ -2,8 +2,6 @@
 
 namespace CarpeDiem\Classes\ViewHelpers;
 
-use CarpeDiem\Classes\Entities\MakesCollection;
-
 class MakesViewHelper
 {
     public static function allMakesDropDown(array $makesList): string
