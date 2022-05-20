@@ -16,7 +16,7 @@ class CarDetailViewHelper
                             . '<div>'
                             . '<div class="info-container">'
                                 . '<div class="make-model">'
-                                    . '<h2>Model</h2>'
+                                    . '<h2>Car Details</h2>'
                                     . '<h3 class="text-1">Make: ' . $car->getMake() . '</h3>'
                                     . '<h3 class="text-2">Model: ' . $car->getModel() . '</h3>'
                                 . '</div>'

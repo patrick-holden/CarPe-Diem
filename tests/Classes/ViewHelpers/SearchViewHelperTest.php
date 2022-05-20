@@ -11,8 +11,7 @@ class SearchViewHelperTest extends TestCase
         $str = htmlentities('testdata');
 
         $expected = '<form action="index.php" method="post">';
-        $expected .= '<label for="search">Search:</label>';
-        $expected .= '<input type="text" name="search" id="search" value="testdata">';
+        $expected .= '<input type="text" name="search" placeholder="Search the collection here" id="search" value="testdata">';
         $expected .= '<button>Search</button>';
         $expected .= '</form>';
 

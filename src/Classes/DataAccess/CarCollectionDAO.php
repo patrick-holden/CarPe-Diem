@@ -15,11 +15,11 @@ class CarCollectionDAO
         $searchTerm = '%' . $searchTerm . '%';
         $sql = 'SELECT `cars`.`id`, `makes`.`make`, `model`, `year`, `colours`.`colour`, `locations`.`location`, `image`'
             . 'FROM `cars` '
-            . 'INNER JOIN `makes`'
+            . 'LEFT JOIN `makes`'
             . 'ON `cars`. `make` = `makes` .`id`'
-            . 'INNER JOIN `colours`'
+            . 'LEFT JOIN `colours`'
             . 'ON `cars`. `colour` = `colours` .`id`'
-            . 'INNER JOIN `locations`'
+            . 'LEFT JOIN `locations`'
             . 'ON `cars`. `location` = `locations` .`id`'
             . "WHERE `makes`.`make` LIKE ? "
             . "OR `cars`.`model` LIKE ? "
@@ -35,3 +35,4 @@ class CarCollectionDAO
         return CarCollectionHydrator::hydrateFromDb($stmt);
     }
 }
+

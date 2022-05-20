@@ -6,15 +6,24 @@
   font-weight: normal;
 }
 
-body {
-  margin: 0.5rem;
-}
 body header {
   display: flex;
-  flex-direction: column;
-  box-shadow: 0 0.5rem 1rem #D0D0D0;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.0823529412);
   justify-content: center;
+  align-items: center;
   text-align: center;
+}
+body header .material-icons {
+  padding: 1rem;
+  font-size: 3rem;
+  text-decoration: none;
+}
+body header a {
+  color: #000000;
+  transition: 0.3s;
+}
+body header a:hover {
+  opacity: 60%;
 }
 body header form {
   display: flex;
@@ -28,7 +37,7 @@ body header form .backBtn {
   color: #000000;
 }
 body main {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 body main .detail-container {
   display: flex;
@@ -44,10 +53,9 @@ body main .imgGrid {
 body main .imgGrid .bg-black {
   min-height: 12rem;
   max-height: 12rem;
-  min-width: 23rem;
-  max-width: 23rem;
+  min-width: 100%;
   grid-row: 1/2;
-  grid-column: 1/2;
+  grid-column: 1/3;
 }
 body main .imgGrid .bg-car {
   min-height: 10rem;
@@ -55,7 +63,7 @@ body main .imgGrid .bg-car {
   min-width: 100%;
   max-width: 100%;
   grid-row: 2/4;
-  grid-column: 1/2;
+  grid-column: 1/3;
   align-self: end;
 }
 body main .info-container {
@@ -65,7 +73,8 @@ body main .info-container {
   margin-bottom: 2rem;
 }
 body main .info-container .make-model {
-  box-shadow: 0 0.5rem 0.5rem #D0D0D0;
+  margin: 0 1rem;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.0823529412);
 }
 body main .info-container .make-model h2 {
   font-weight: 700;
@@ -77,8 +86,9 @@ body main .info-container .make-model .text-2 {
   font-weight: 400;
 }
 body main .info-container .year-colour {
-  box-shadow: 0 0.5rem 0.5rem #D0D0D0;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.0823529412);
   z-index: -1;
+  margin: 0 1rem;
 }
 body main .info-container .year-colour h2 {
   font-weight: 700;
@@ -90,7 +100,11 @@ body main .info-container .year-colour .text-2 {
   font-weight: 400;
 }
 body main .info-container .location {
-  box-shadow: 0 0.5rem 0.5rem #D0D0D0;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.0823529412);
+  margin: 0 1rem;
+}
+body main .info-container .location h2 {
+  font-weight: 700;
 }
 
 @media (min-width: 660px) {
@@ -101,7 +115,7 @@ body main .info-container .location {
     margin-bottom: 1rem;
   }
   body main {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   body main .detail-container {
     flex-direction: row;
